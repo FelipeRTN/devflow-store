@@ -33,10 +33,20 @@ function render(list) {
     ul.appendChild(li);
   });
 }
+// app.js
+
+// ... seu código ...
 
 function init() {
-  const input = document.getElementById("search");
-  render(PRODUCTS);
-  input.addEventListener("input", () => render(filterProducts(input.value, PRODUCTS)));
+  const input = document.getElementById('search');
+  if (input) {
+    input.addEventListener('input', () => {
+      render(filterProducts(input.value, PRODUCTS));
+    });
+  }
 }
-document.addEventListener("DOMContentLoaded", init);
+
+// Só roda no navegador
+if (typeof document !== 'undefined') {
+  document.addEventListener('DOMContentLoaded', init);
+}
