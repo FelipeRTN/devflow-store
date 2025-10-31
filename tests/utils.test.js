@@ -21,4 +21,7 @@ describe("filterProducts", () => {
     const r = filterProducts("moU", list);
     expect(r).toEqual([{ name: "Mouse" }]);
   });
+  it("retorna vazio se não encontrar", () => {
+    expect(filterProducts("xyz", list)).toHaveLength(0);
+});
 });
