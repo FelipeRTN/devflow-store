@@ -4,9 +4,15 @@ import { defineConfig } from 'vite';
 export default defineConfig({
   test: {
     globals: true,
-    environment: 'jsdom',     // Simula o DOM
-    setupFiles: './tests/setup.js',  // (opcional)
-    include: ['tests/**/*.{test,spec}.js'],
+    environment: 'jsdom',
+    include: ['**/*.{test,spec}.js'],
+    exclude: [
+      '**/node_modules/**',
+      '**/dist/**',
+      '**/cypress/**',
+      '**/.{idea,git,cache,output,temp}/**',
+      '**/{vite,vitest,jest,eslint,prettier}.config.*'
+    ],
     reporters: 'verbose',
   },
 });
